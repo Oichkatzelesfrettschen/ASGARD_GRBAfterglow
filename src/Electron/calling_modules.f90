@@ -146,7 +146,7 @@ allocate (dN1(Num_gam_e),ddN(Num_gam_e-1),d_nu(Num_nu-1))
        dInteg=zero
        Tau=zero
 
-       ! ∫f(x)dx ≈ (h/3)[f(x0) + 4f(x1) + 2f(x2) + 4f(x3) + ... + f(xn)]
+       ! \int f(x)dx \prox (h/3)[f(x0) + 4f(x1) + 2f(x2) + 4f(x3) + ... + f(xn)]
        simpson_sum = 0.0d0
        do I_gam_e=1,Num_gam_e
            Vc = (4.2d6)*gam_e(I_gam_e)**2*DB
