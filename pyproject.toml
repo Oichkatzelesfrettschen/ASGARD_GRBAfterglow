@@ -1,0 +1,70 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "asgard-grb"
+version = "0.1.0"
+description = "ASGARD GRB Afterglow Analysis - Multi-wavelength light curve fitting"
+readme = "README.md"
+license = "GPL-3.0-or-later"
+requires-python = ">=3.9"
+authors = [
+    { name = "ASGARD Collaboration" },
+]
+keywords = ["grb", "gamma-ray burst", "afterglow", "mcmc", "astrophysics"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Astronomy",
+    "Topic :: Scientific/Engineering :: Physics",
+]
+
+dependencies = [
+    "numpy>=1.20",
+    "scipy>=1.7",
+    "matplotlib>=3.5",
+    "astropy>=5.0",
+    "emcee>=3.0",
+    "corner>=2.0",
+    "extinction>=0.4",
+    "schwimmbad>=0.3",
+    "h5py>=3.0",
+]
+
+[project.optional-dependencies]
+grb-common = [
+    "grb-common>=0.1.0",
+]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "black>=23.0",
+    "ruff>=0.1",
+]
+
+[project.urls]
+Homepage = "https://github.com/Oichkatzelesfrettschen/ASGARD_GRBAfterglow"
+Repository = "https://github.com/Oichkatzelesfrettschen/ASGARD_GRBAfterglow"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[tool.black]
+line-length = 100
+target-version = ["py39", "py310", "py311", "py312"]
+
+[tool.ruff]
+line-length = 100
+select = ["E", "F", "W", "I"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
